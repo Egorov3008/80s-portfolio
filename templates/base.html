@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config.PROFILE.name }} | 80s Portfolio</title>
+    
+    <!-- Pixel Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- CRT Screen Effect -->
+    <div class="crt-overlay"></div>
+    
+    <!-- Retro Grid Background -->
+    <div class="retro-grid"></div>
+    
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer>
+        <p>© {{ config.current_year }} {{ config.PROFILE.name }}</p>
+        <p>Made with 💜 in the 80s style</p>
+    </footer>
+
+    <!-- Loading Script -->
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading').style.display = 'none';
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-avatar">
+                <img src="https://github.com/Egorov3008.png" alt="{{ config.PROFILE.name }}" class="avatar">
+            </div>
+            <h1 class="hero-title">{{ config.PROFILE.name }}</h1>
+            <h2 class="hero-subtitle">{{ config.PROFILE.title }}</h2>
+            <p class="hero-bio">{{ config.PROFILE.bio }}</p>
+            <div class="hero-contacts">
+                <a href="mailto:{{ config.PROFILE.email }}" class="btn btn-primary">📧 Написать мне</a>
+                <a href="{{ config.PROFILE.github }}" class="btn btn-secondary" target="_blank">GitHub</a>
+                <a href="{{ config.PROFILE.telegram }}" class="btn btn-secondary" target="_blank">Telegram</a>
+            </div>
+        </div>
+        <div class="hero-location">
+            <span class="location-badge">📍 {{ config.PROFILE.location }}</span>
+        </div>
+    </div>
+</section>
+
+<section class="skills">
+    <div class="container">
+        <h3 class="section-title">Мои Навыки</h3>
+        <div class="skills-grid">
+            {% for skill in config.SKILLS %}
+            <div class="skill-category">
+                <h4>{{ skill.category }}</h4>
+                <ul class="skill-list">
+                    {% for item in skill.skills %}
+                    <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="projects" id="projects">
+    <div class="container">
+        <h3 class="section-title">Мои Проекты</h3>
+        <div class="projects-grid">
+            {% for project in config.PROJECTS %}
+            <div class="project-card">
+                <h3>{{ project.name }}</h3>
+                <p>{{ project.description }}</p>
+                <ul class="skill-list" style="margin-bottom: 20px;">
+                    {% for tech in project.tech %}
+                    <li>{{ tech }}</li>
+                    {% endfor %}
+                </ul>
+                {% if project.github %}
+                <a href="{{ project.github }}" class="btn btn-primary" target="_blank">Смотреть код</a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

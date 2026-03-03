@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="contacts-full">
+    <div class="container">
+        <h3 class="section-title">Связаться со мной</h3>
+        <div class="contacts-grid">
+            <div class="contact-item">
+                <h3>📧 Email</h3>
+                <p><a href="mailto:{{ config.PROFILE.email }}">{{ config.PROFILE.email }}</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>💬 Telegram</h3>
+                <p><a href="{{ config.PROFILE.telegram }}" target="_blank">@Egorov3008</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>👨‍💻 GitHub</h3>
+                <p><a href="{{ config.PROFILE.github }}" target="_blank">@Egorov3008</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>📍 Локация</h3>
+                <p>{{ config.PROFILE.location }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
